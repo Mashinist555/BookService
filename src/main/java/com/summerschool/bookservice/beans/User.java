@@ -5,9 +5,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import javax.persistence.*;
 import java.util.Set;
 
-/**
- * Created by sbabkin on 7/2/2017.
- */
 @Entity
 @NamedQueries({
         @NamedQuery(name = "User.listAll", query = "from User"),

@@ -3,6 +3,7 @@ package com.summerschool.bookservice.configuration;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -10,6 +11,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
@@ -29,13 +31,21 @@ public class PersistenceConfig {
     @Autowired
     private Environment environment;
 
+    //Get properties from the file using @Value annotation:
+    @Value("${dataSource.userName}")
+    private String userName;
+    
+    @Value("${dataSource.password}")
+    private String password;
+
     @Bean
     public DataSource dataSource() {
         final BasicDataSource basicDataSource = new BasicDataSource();
+        //or get properties from the file using injected Environment
         basicDataSource.setDriverClassName(environment.getProperty("dataSource.driverName"));
         basicDataSource.setUrl(environment.getProperty("dataSource.url"));
-        basicDataSource.setUsername(environment.getProperty("dataSource.userName"));
-        basicDataSource.setPassword(environment.getProperty("dataSource.password"));
+        basicDataSource.setUsername(userName);
+        basicDataSource.setPassword(password);
         return basicDataSource;
     }
 
@@ -68,5 +78,11 @@ public class PersistenceConfig {
         final JpaTransactionManager tm = new JpaTransactionManager();
         tm.setEntityManagerFactory(entityManagerFactory);
         return tm;
+    }
+    
+    @Autowired
+    @Bean
+    public JdbcTemplate getJdbcTemplate(DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
     }
 }

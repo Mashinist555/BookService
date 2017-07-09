@@ -4,9 +4,6 @@ import com.summerschool.bookservice.beans.User;
 
 import java.util.List;
 
-/**
- * Created by sbabkin on 7/2/2017.
- */
 public interface UserService {
 
     User getUser(Long userId);

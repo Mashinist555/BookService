@@ -3,9 +3,6 @@ package com.summerschool.bookservice.beans;
 import javax.persistence.*;
 import java.sql.Date;
 
-/**
- * Created by sbabkin on 7/2/2017.
- */
 @Entity
 @Table(name = "booking")
 public class Booking {

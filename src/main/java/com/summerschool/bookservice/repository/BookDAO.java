@@ -4,9 +4,6 @@ import com.summerschool.bookservice.beans.Book;
 
 import java.util.List;
 
-/**
- * Created by sbabkin on 7/5/2017.
- */
 public interface BookDAO {
 
     Book getBook(Long bookId);
