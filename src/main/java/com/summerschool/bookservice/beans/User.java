@@ -15,7 +15,7 @@ import java.util.Set;
 })
 @Table(name = "\"user\"")
 public class User {
-    
+
     @JsonView(View.Summary.class)
     private long userId;
 

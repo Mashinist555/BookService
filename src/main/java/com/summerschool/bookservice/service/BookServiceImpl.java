@@ -13,13 +13,13 @@ import java.util.Set;
 
 @Service
 public class BookServiceImpl implements BookService {
-    
+
     @Autowired
     private BookDAO bookDAO;
-    
+
     @Autowired
     private UserDAO userDAO;
-    
+
     @Transactional
     @Override
     public Book getBook(Long bookId) {

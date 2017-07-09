@@ -13,7 +13,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/book")
 public class BookController {
-    
+
     @Autowired
     private BookService bookService;
 
@@ -30,7 +30,7 @@ public class BookController {
     }
 
     @JsonView(View.Summary.class)
-    @RequestMapping(method = RequestMethod.PUT) 
+    @RequestMapping(method = RequestMethod.PUT)
     public Book updateBook(@RequestBody Book book) {
         return bookService.update(book);
     }
@@ -40,7 +40,7 @@ public class BookController {
     public Set<Book> listOwnerBooks(@PathVariable Long userId) {
         return bookService.listOwnerBooks(userId);
     }
-    
+
     @JsonView(View.Summary.class)
     @RequestMapping(value = "/find")
     public List<Book> findBooks(@RequestParam String name) {

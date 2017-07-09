@@ -24,5 +24,5 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/static/**");
 
     }
-    
+
 }

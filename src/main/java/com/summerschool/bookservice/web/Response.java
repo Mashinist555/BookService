@@ -1,7 +1,7 @@
 package com.summerschool.bookservice.web;
 
 public class Response {
-    
+
     private int code;
     private String description;
 

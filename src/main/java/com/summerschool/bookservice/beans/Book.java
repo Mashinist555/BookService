@@ -10,7 +10,7 @@ import javax.persistence.*;
 })
 @Table(name = "book")
 public class Book {
-    
+
     @JsonView(View.Summary.class)
     private long bookId;
 
@@ -19,7 +19,7 @@ public class Book {
 
     @JsonView(View.Summary.class)
     private String description;
-    
+
     private User owner;
 
     @Id

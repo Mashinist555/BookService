@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public class BookDAOImpl implements BookDAO {
-    
+
     @PersistenceContext
     private EntityManager entityManager;
 

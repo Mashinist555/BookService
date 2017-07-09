@@ -25,10 +25,10 @@ import java.io.IOException;
 @PropertySource("classpath:database.properties")
 @EnableTransactionManagement
 public class PersistenceConfig {
-    
+
     @Autowired
     private Environment environment;
-    
+
     @Bean
     public DataSource dataSource() {
         final BasicDataSource basicDataSource = new BasicDataSource();
@@ -50,7 +50,7 @@ public class PersistenceConfig {
         factoryBean.setJpaProperties(PropertiesLoaderUtils.loadProperties(new ClassPathResource("persistence.properties")));
         return factoryBean;
     }
-    
+
     @Bean
     public PersistenceExceptionTranslationPostProcessor getExceptionTranslationPostProcessor() {
         return new PersistenceExceptionTranslationPostProcessor();
