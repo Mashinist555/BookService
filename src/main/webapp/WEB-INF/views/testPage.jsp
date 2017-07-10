@@ -5,6 +5,6 @@
 <body>
 <h2>This is test page</h2>
 <br>
-<p>The value of parameter: ${parameter}</p>
+<p>Our message: ${parameter}</p>
 </body>
 </html>

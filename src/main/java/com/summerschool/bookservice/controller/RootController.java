@@ -9,7 +9,7 @@ public class RootController {
 
     @RequestMapping("/")
     public String examplePageWithModel(ModelMap model) {
-        model.addAttribute("parameter", "valueOfParameter");
+        model.addAttribute("parameter", "Hello world!");
         return "testPage";
     }
 }
