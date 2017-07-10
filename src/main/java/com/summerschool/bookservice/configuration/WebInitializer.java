@@ -19,16 +19,6 @@ public class WebInitializer implements WebApplicationInitializer {
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
 
-//        FilterRegistration.Dynamic encodingFilter = servletContext.addFilter("encoding-filter", new CharacterEncodingFilter());
-//        encodingFilter.setInitParameter("encoding", "UTF-8");
-//        encodingFilter.setInitParameter("forceEncoding", "true");
-//        encodingFilter.addMappingForUrlPatterns(null, true, "/*");
-
-//        final FilterRegistration.Dynamic filter = servletContext.addFilter("springSecurityFilterChain",
-//                new DelegatingFilterProxy("springSecurityFilterChain"));
-
-//        filter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
-
         servletContext.addListener(new ContextLoaderListener(ctx));
     }
 }
